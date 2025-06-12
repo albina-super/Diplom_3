@@ -1,0 +1,3 @@
+{'email': 'my_user555@test.com', 'password': 'test123', 'name': 'my_user'} data
+202
+{'success': True, 'message': 'User successfully removed'}
