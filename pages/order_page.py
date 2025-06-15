@@ -48,7 +48,6 @@ class OrderPage(BasePage):
     @step('проверяем ордер в ленте заказов')
     def check_order_in_order_tape(self, number):
         self.press_esc()
-        # self.wait_for_invisibility_of_element(GeneralsLocators.DIV_OVERLAY)
         self.wait_for_invisibility_of_element(GeneralsLocators.OVERLAY_MODAL)
         self.click_to_element(OrderPageLocators.ORDER_TAPE_LOGO)
         formated_order_num_locator = self.format_locators(OrderPageLocators.NUMBER_ORDER_IN_ORDER_TAPE, number)
@@ -60,12 +59,10 @@ class OrderPage(BasePage):
     @step('проверяем что ордер находится в работе')
     def check_order_in_progress(self):
         self.press_esc()
-        # self.wait_for_invisibility_of_element(GeneralsLocators.DIV_OVERLAY)
         self.wait_for_invisibility_of_element(GeneralsLocators.OVERLAY_MODAL)
         self.click_to_element(OrderPageLocators.ORDER_TAPE_LOGO)
         self.wait_for_invisibility_of_element(GeneralsLocators.DIV_OVERLAY)
         order_num = self.get_text_when_presence(OrderPageLocators.NUMBER_ORDER_IN_PROGRESS, "Все текущие заказы готовы!")
-        # self.wait_for_invisibility_of_element(GeneralsLocators.DIV_OVERLAY)
         return order_num
 
 
@@ -78,6 +75,5 @@ class OrderPage(BasePage):
         self.wait_for_invisibility_of_element(GeneralsLocators.DIV_OVERLAY)
         all_time = self.get_text_from_element(OrderPageLocators.DONE_ORDERS_ALL_TIME)
         today = self.get_text_from_element(OrderPageLocators.DONE_ORDERS_TODAY)
-        # self.wait_for_invisibility_of_element(GeneralsLocators.DIV_OVERLAY)
         self.click_to_element(OrderPageLocators.MAIN_PAGE_LINK)
         return all_time, today
